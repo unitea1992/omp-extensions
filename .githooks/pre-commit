@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+if ! command -v betterleaks >/dev/null 2>&1; then
+  echo "betterleaks is required by this repository's pre-commit hook." >&2
+  echo "Install it or disable the repo-local hook with: git config --unset core.hooksPath" >&2
+  exit 1
+fi
+
+exec betterleaks git --pre-commit --staged . --no-banner --no-color --redact=100

@@ -1,0 +1,16 @@
+{
+	"name": "omp-magic-router",
+	"version": "0.1.8",
+	"description": "oh-my-pi extension: deterministically routes prompts and paste attachments to native magic keywords with session toggle/status",
+	"license": "MIT",
+	"type": "module",
+	"main": "./src/index.ts",
+	"files": ["src", "README.md", "LICENSE"],
+	"omp": {
+		"extensions": ["./src/index.ts"]
+	},
+	"devDependencies": {
+		"@oh-my-pi/pi-coding-agent": "18.3.2",
+		"@oh-my-pi/pi-tui": "18.3.2"
+	}
+}

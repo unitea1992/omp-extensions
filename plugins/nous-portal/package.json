@@ -1,0 +1,15 @@
+{
+	"name": "omp-nous-portal",
+	"version": "0.1.2",
+	"private": true,
+	"description": "Nous Portal OAuth provider for oh-my-pi",
+	"type": "module",
+	"license": "MIT",
+	"omp": {
+		"extensions": ["./src/index.ts"]
+	},
+	"devDependencies": {
+		"@oh-my-pi/pi-ai": "18.3.2",
+		"@oh-my-pi/pi-coding-agent": "18.3.2"
+	}
+}

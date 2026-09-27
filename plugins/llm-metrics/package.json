@@ -1,0 +1,15 @@
+{
+	"name": "omp-llm-metrics",
+	"version": "0.2.0",
+	"description": "oh-my-pi extension: vLLM/SGLang speculative decoding, throughput, queue, and cache telemetry",
+	"license": "MIT",
+	"type": "module",
+	"main": "./src/index.ts",
+	"files": ["src", "README.md", "LICENSE"],
+	"omp": {
+		"extensions": ["./src/index.ts"]
+	},
+	"devDependencies": {
+		"@oh-my-pi/pi-coding-agent": "18.3.2"
+	}
+}

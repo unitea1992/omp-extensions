@@ -1,0 +1,52 @@
+{
+	"name": "omp-extensions",
+	"owner": {
+		"name": "unitea1992"
+	},
+	"metadata": {
+		"description": "Optional extensions for oh-my-pi: provider integrations, inference-engine telemetry, native magic-keyword routing and one-shot expert review.",
+		"version": "0.5.0"
+	},
+	"plugins": [
+		{
+			"name": "nous-portal",
+			"version": "0.1.2",
+			"description": "Adds Nous Portal Device OAuth, /login integration and dynamic model discovery.",
+			"source": "./plugins/nous-portal",
+			"license": "MIT",
+			"category": "providers"
+		},
+		{
+			"name": "free-models",
+			"version": "0.4.0",
+			"description": "Picks provider-confirmed free models from live sources and diagnoses stale catalog entries.",
+			"source": "./plugins/free-models",
+			"license": "MIT",
+			"category": "providers"
+		},
+		{
+			"name": "llm-metrics",
+			"version": "0.2.0",
+			"description": "vLLM and SGLang queue, throughput, speculative-decoding and KV-cache telemetry for the OMP status line.",
+			"source": "./plugins/llm-metrics",
+			"license": "MIT",
+			"category": "telemetry"
+		},
+		{
+			"name": "magic-router",
+			"version": "0.1.8",
+			"description": "Routes interactive prompts and OMP paste attachments to native magic keywords with deterministic classification, session toggle and native-gradient status.",
+			"source": "./plugins/magic-router",
+			"license": "MIT",
+			"category": "orchestration"
+		},
+		{
+			"name": "expert-review",
+			"version": "0.2.2",
+			"description": "Advisor review then original-model adjudication and minimal apply.",
+			"source": "./plugins/expert-review",
+			"license": "MIT",
+			"category": "orchestration"
+		}
+	]
+}
