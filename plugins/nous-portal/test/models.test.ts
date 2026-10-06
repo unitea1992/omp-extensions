@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { fetchModelCatalog, parseModelCatalog } from "../src/models.ts";
+import { fetchModelCatalog, normalizeBaseUrl, parseModelCatalog } from "../src/models.ts";
 
 test("Nous /models を OMP model metadata に変換する", () => {
 	const models = parseModelCatalog({
@@ -70,4 +70,13 @@ test("価格欠落を free model の根拠としてフィルタしない", () =>
 	const models = parseModelCatalog({ data: [{ id: "unknown-price-model" }] });
 	expect(models).toHaveLength(1);
 	expect(models[0]?.cost).toEqual({ input: 0, output: 0, cacheRead: 0, cacheWrite: 0 });
+});
+
+test("normalizeBaseUrl は末尾のスラッシュだけを取り除き、スラッシュが多くても遅くならない", () => {
+	expect(normalizeBaseUrl("https://example.com/v1///")).toBe("https://example.com/v1");
+	expect(normalizeBaseUrl("https://example.com//v1")).toBe("https://example.com//v1");
+	expect(normalizeBaseUrl("  ", "https://fallback.test/")).toBe("https://fallback.test");
+	const started = performance.now();
+	normalizeBaseUrl(`${"/".repeat(200_000)}x`);
+	expect(performance.now() - started).toBeLessThan(500);
 });
