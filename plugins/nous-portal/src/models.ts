@@ -85,7 +85,9 @@ export const OPENROUTER_REASONING_COMPAT: NonNullable<NousProviderModelConfig["c
 
 export function normalizeBaseUrl(value: unknown, fallback = DEFAULT_INFERENCE_BASE_URL): string {
 	const candidate = typeof value === "string" && value.trim() ? value.trim() : fallback;
-	return candidate.replace(/\/+$/, "");
+	let end = candidate.length;
+	while (end > 0 && candidate[end - 1] === "/") end--;
+	return candidate.slice(0, end);
 }
 
 export function getInferenceBaseUrl(env: NodeJS.ProcessEnv = process.env): string {
