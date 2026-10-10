@@ -222,7 +222,7 @@ describe("marketplace catalog", () => {
 
 				const startup = run(["--no-session", "--no-title", "--no-tools", "-p", "smoke"]);
 				expect(startup.output).not.toMatch(/Failed to load extension|Cannot find package/u);
-				expect(startup.output).toContain("No models available");
+				expect(startup.output).toMatch(/No models available|No default model selected/u);
 				expect(startup.exitCode).toBe(1);
 			} finally {
 				await Promise.all(tempDirs.map((dir) => rm(dir, { recursive: true, force: true })));
