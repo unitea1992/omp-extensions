@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"workspaces": ["plugins/*"],
 	"scripts": {
-		"typecheck": "tsc --noEmit",
+		"typecheck": "bun --check",
 		"lint": "biome check .",
 		"test": "bun test",
 		"check": "bun run typecheck && bun run lint && bun test",
